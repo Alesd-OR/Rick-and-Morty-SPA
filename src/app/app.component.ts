@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'rick-and-morty-dashboard';
+  title = 'rick-and-morty-dashboard'; // Adicionando a propriedade title
+  currentPage: string = 'characters'; // Página inicial
+
+  navigateTo(page: string): void {
+    this.currentPage = page;
+  }
 }

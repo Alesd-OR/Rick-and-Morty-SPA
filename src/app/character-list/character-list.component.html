@@ -1,0 +1,20 @@
+<div class="search-bar">
+  <input
+    type="text"
+    placeholder="Buscar personagem..."
+    (input)="searchCharacters($event.target.value)"
+    [(ngModel)]="searchTerm"
+  />
+</div>
+
+<div class="character-list">
+  <div *ngFor="let character of characters" class="character-card">
+    <img [src]="character.image" alt="{{ character.name }}" />
+    <div>
+      <h3>{{ character.name }}</h3>
+      <p>{{ character.species }} | {{ character.status }}</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loading-spinner">Carregando...</div>

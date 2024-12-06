@@ -1,0 +1,47 @@
+:host {
+    display: grid;
+    grid-template-columns: 250px 1fr;  // Sidebar com largura fixa e conteúdo fluido
+    grid-template-rows: auto 1fr;     // Cabeçalho no topo e conteúdo ocupando o restante
+    grid-template-areas:
+      "header header"
+      "sidebar content";
+    height: 100vh;
+  }
+  
+  mat-sidenav-container {
+    display: contents; // Deixe o container ocupar o espaço do grid
+  }
+  
+  mat-sidenav {
+    grid-area: sidebar;  // Sidebar ocupa o grid à esquerda
+  }
+  
+  mat-sidenav-content {
+    grid-area: content;  // O conteúdo vai para o restante do espaço
+  }
+  
+  app-header {
+    grid-area: header; // O cabeçalho ocupa a parte superior
+    position: sticky;
+    top: 0;
+  }
+  
+  .content {
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+
+@media (max-width: 768px) {
+    :host {
+      grid-template-columns: 1fr; // A sidebar ocupa toda a largura da tela
+      grid-template-areas:
+        "header"
+        "content";
+    }
+  
+    mat-sidenav {
+      grid-area: content;  // Sidebar se torna parte do conteúdo em telas pequenas
+    }
+  }
+  

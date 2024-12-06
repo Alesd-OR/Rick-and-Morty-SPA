@@ -1,0 +1,21 @@
+<div>
+    <input
+      type="text"
+      placeholder="Buscar episódio"
+      (input)="onSearchChange($event.target.value)"
+      [(ngModel)]="searchTerm"
+    />
+  </div>
+  
+  <div *ngFor="let episode of episodes">
+    <div>
+      <h3>{{ episode.name }}</h3>
+      <p>{{ episode.air_date }} | {{ episode.episode }}</p>
+    </div>
+  </div>
+  
+  <div *ngIf="totalPages > 1">
+    <button (click)="onPageChange(page - 1)" [disabled]="page === 1">Anterior</button>
+    <button (click)="onPageChange(page + 1)" [disabled]="page === totalPages">Próximo</button>
+  </div>
+  

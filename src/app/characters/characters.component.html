@@ -1,0 +1,12 @@
+<div *ngIf="loading">Carregando...</div>
+
+<div *ngIf="!loading && characters.length > 0">
+  <div *ngFor="let character of characters" (click)="goToCharacterDetails(character.id)" class="character-card">
+    <img [src]="character.image" alt="{{ character.name }}">
+    <h3>{{ character.name }}</h3>
+  </div>
+</div>
+
+<div *ngIf="!loading && characters.length === 0">
+  <p>Nenhum personagem encontrado.</p>
+</div>
